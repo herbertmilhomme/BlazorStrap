@@ -1,0 +1,14 @@
+﻿@implements IDisposable
+<CascadingValue Value="this">
+    <li class="nav-item">
+        <div class="nav-link @((IsActive) ? "active" : "") d-flex @Class">
+            <a @onclick="OnClickEventAsync" @onclick:preventDefault @onclick:stopPropagation @ondblclick="OnDblClickEventAsync" @ondblclick:preventDefault @ondblclick:stopPropagation @attributes="AdditionalAttributes">
+                <span class="@(Child != null ? "tree-toggle" : "tree-spacer")  @((IsOpen && Child != null) ? "open" : "")"></span>
+                @GetLabel()
+            </a>
+            <div class="bs-tree-actions">@Action</div>
+        </div>
+
+        @ChildContent
+    </li>
+</CascadingValue>

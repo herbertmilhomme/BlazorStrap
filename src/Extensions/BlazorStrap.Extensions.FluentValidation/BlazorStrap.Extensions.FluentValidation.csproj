@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net7.0;net8.0;net9.0</TargetFrameworks>
+    <IsPackable>true</IsPackable>
+    <LangVersion>8.0</LangVersion>
+    <RazorLangVersion>3.0</RazorLangVersion>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    <PackageId>BlazorStrap.Extensions.FluentValidation</PackageId>
+    <Version>2.0.2-RC1</Version>
+    <Authors>Chanan Braunstein; John Bomhold</Authors>
+    <Title>Blazor BootStrap Extensions FluentValidation</Title>
+    <Description>A FluentValidation component library for BlazorStrap</Description>
+    <PackageProjectUrl>https://blazorstrap.io/</PackageProjectUrl>
+    <PackageTags>blazor;bootstrap;bootstrap4</PackageTags>
+    <RepositoryUrl>https://github.com/chanan/BlazorStrap</RepositoryUrl>
+    <Platforms>AnyCPU;x64;x86</Platforms>
+    <RootNamespace>BlazorStrap.Extensions</RootNamespace>
+    <AssemblyName>BlazorStrap.Extensions.FluentValidation</AssemblyName>
+  </PropertyGroup>
+  
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net7.0' ">
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.*" />
+      <PackageReference Include="FluentValidation" Version="10.4.0" />
+	</ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net8.0' ">
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.*" />
+    <PackageReference Include="FluentValidation" Version="10.4.0" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net9.0' ">
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.*" />
+    <PackageReference Include="FluentValidation" Version="10.4.0" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="3.1.4" />
+    <PackageReference Include="FluentValidation" Version="8.6.2" />
+  </ItemGroup>
+  <ItemGroup>
+    
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,64 @@
+﻿@page "/breadcrumbs"
+
+<h1>Breadcrumbs</h1>
+
+<div class="docs-example">
+    <BSBreadcrumb>
+        <BSBreadcrumbItem IsActive="true">Home</BSBreadcrumbItem>
+    </BSBreadcrumb>
+    <BSBreadcrumb>
+        <BSBreadcrumbItem><a href="#">Home</a></BSBreadcrumbItem>
+        <BSBreadcrumbItem IsActive="true">Library</BSBreadcrumbItem>
+    </BSBreadcrumb>
+    <BSBreadcrumb>
+        <BSBreadcrumbItem><a href="#">Home</a></BSBreadcrumbItem>
+        <BSBreadcrumbItem><a href="#">Library</a></BSBreadcrumbItem>
+        <BSBreadcrumbItem IsActive="true">Data</BSBreadcrumbItem>
+    </BSBreadcrumb>
+</div>
+<PrettyCode CodeFile="_content/SampleCore/snippets/breadcrumbs/breadcrumbs1.html" />
+
+<h3>Properties</h3>
+
+<h4>BSBreadcrumb Properties</h4>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Class</td>
+            <td>string</td>
+            <td>Adds additional classes to the breadcrumb.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h4>BSBreadcrumbItem Properties</h4>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Class</td>
+            <td>string</td>
+            <td>Adds additional classes to the breadcrumb.</td>
+        </tr>
+        <tr>
+            <td>IsActive</td>
+            <td>bool</td>
+            <td>Marks the Breadcrumb item as active.</td>
+        </tr>
+    </tbody>
+</table>

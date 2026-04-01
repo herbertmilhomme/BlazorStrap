@@ -1,0 +1,75 @@
+﻿@inherits BlazorStrap.Shared.Components.Common.BSDropdownBase
+@namespace BlazorStrap.V5
+
+@if (Group != null && string.IsNullOrEmpty(Target))
+{
+    <BlazorStrap.Shared.InternalComponents.Error Name="BSDropdown">
+        <strong>Target</strong> can not be empty when inside a button group.
+    </BlazorStrap.Shared.InternalComponents.Error>
+
+    return;
+}
+<CascadingValue Value="this">
+    @if (NavItem != null && !IsDiv)
+    {
+        if (IsNavPopper)
+        {
+            @Toggler
+            <ul class="@ClassBuilder" style="@StyleBuilder" @attributes="Attributes" @ref="MyRef" data-popper-placement="@Placement.Name().ToDashSeperated()" data-blazorstrap="@DataId" data-bs-popper="blazorstrap" data-bs-auto-close="@((IsManual || AllowOutsideClick || Demo) ? "false" : "true")">
+                @Content
+            </ul>
+        }
+        else
+        {
+            @Toggler
+            <ul class="@ClassBuilder" @attributes="Attributes" @ref="MyRef" data-bs-popper="blazorstrap" data-blazorstrap="@DataId" data-bs-auto-close="@((IsManual || AllowOutsideClick || Demo) ? "false" : "true")">
+                @Content
+            </ul>
+        }
+    }
+    else if (Demo)
+    {
+        <ul class="@ClassBuilder" @attributes="Attributes" @ref="MyRef" data-blazorstrap="@DataId" data-bs-auto-close="@((IsManual || AllowOutsideClick || Demo) ? "false" : "true")">
+            @Content
+        </ul>
+    }
+    else if (Group != null && !IsStatic && IsDiv)
+    {
+        @Toggler
+        <div class="@ClassBuilder" style="@StyleBuilder" @attributes="Attributes" @ref="MyRef" data-popper-placement="@Placement.Name().ToDashSeperated()" data-blazorstrap="@DataId" data-bs-popper="blazorstrap" data-bs-auto-close="@((IsManual || AllowOutsideClick || Demo) ? "false" : "true")">
+            @Content
+        </div>
+    }
+    else if (Group != null && !IsStatic)
+    {
+        @Toggler
+        <ul class="@ClassBuilder" style="@StyleBuilder" @attributes="Attributes" @ref="MyRef" data-popper-placement="@Placement.Name().ToDashSeperated()" data-blazorstrap="@DataId" data-bs-popper="blazorstrap" data-bs-auto-close="@((IsManual || AllowOutsideClick || Demo) ? "false" : "true")">
+            @Content
+        </ul>
+    }
+    else if (InputGroup != null && !IsStatic)
+    {
+        @Toggler
+        <div class="@ClassBuilder" style="@StyleBuilder" @attributes="Attributes" @ref="MyRef" data-popper-placement="@Placement.Name().ToDashSeperated()" data-blazorstrap="@DataId" data-bs-popper="blazorstrap" data-bs-auto-close="@((IsManual || AllowOutsideClick || Demo) ? "false" : "true")">
+            @Content
+        </div>
+    }
+    else if (IsDiv)
+    {
+        <div class="@IsDivClassBuilder">
+            @Toggler
+            <div class="@ClassBuilder" style="@StyleBuilder" @attributes="Attributes" @ref="MyRef" data-popper-placement="@Placement.Name().ToDashSeperated()" data-blazorstrap="@DataId" data-bs-popper="blazorstrap" data-bs-auto-close="@((IsManual || AllowOutsideClick || Demo) ? "false" : "true")">
+                @Content
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="dropdown">
+            @Toggler
+            <ul class="@ClassBuilder" @attributes="Attributes" @ref="MyRef" data-bs-popper="blazorstrap" data-blazorstrap="@DataId" data-bs-auto-close="@((IsManual || AllowOutsideClick || Demo) ? "false" : "true")">
+                @Content
+            </ul>
+        </div>
+    }
+</CascadingValue>

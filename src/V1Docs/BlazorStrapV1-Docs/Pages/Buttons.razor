@@ -1,0 +1,188 @@
+﻿@page "/buttons"
+@using SampleCore.Pages.Samples.Issue278Types
+
+<h1>Buttons</h1>
+<div class="docs-example">
+    <BSButton Color="Color.Primary">primary</BSButton>
+    <BSButton Color="Color.Secondary">secondary</BSButton>
+    <BSButton Color="Color.Success">success</BSButton>
+    <BSButton Color="Color.Info">info</BSButton>
+    <BSButton Color="Color.Warning">warning</BSButton>
+    <BSButton Color="Color.Danger">danger</BSButton>
+    <BSButton Color="Color.Light">light</BSButton>
+    <BSButton Color="Color.Dark">dark</BSButton>
+    <BSButton Color="Color.Link">link</BSButton>
+</div>
+<PrettyCode CodeFile="_content/SampleCore/snippets/buttons/buttons1.html" />
+
+<h3>Supplying OnClick Handler</h3>
+<div class="docs-example">
+    <BSButton @onclick="onclick">Click Me</BSButton>
+</div>
+<PrettyCode CodeFile="_content/SampleCore/snippets/buttons/buttons2.html" />
+
+<h3>Button tags</h3>
+
+<div class="docs-example">
+    <BSButton ButtonType="ButtonType.Link" Href="#">Link</BSButton>
+    <BSButton ButtonType="ButtonType.Button">Button</BSButton>
+    <BSButton ButtonType="ButtonType.Input" Value="Input" />
+    <BSButton ButtonType="ButtonType.Submit" Value="Submit">Submit</BSButton>
+    <BSButton ButtonType="ButtonType.Reset" Value="Reset" />
+</div>
+<PrettyCode CodeFile="_content/SampleCore/snippets/buttons/buttons3.html" />
+
+<h3>Outline Buttons</h3>
+
+<div class="docs-example">
+    <BSButton IsOutline="true" Color="Color.Primary">primary</BSButton>
+    <BSButton IsOutline="true" Color="Color.Secondary">secondary</BSButton>
+    <BSButton IsOutline="true" Color="Color.Success">success</BSButton>
+    <BSButton IsOutline="true" Color="Color.Info">info</BSButton>
+    <BSButton IsOutline="true" Color="Color.Warning">warning</BSButton>
+    <BSButton IsOutline="true" Color="Color.Danger">danger</BSButton>
+    <BSButton IsOutline="true" Color="Color.Light">light</BSButton>
+    <BSButton IsOutline="true" Color="Color.Dark">dark</BSButton>
+</div>
+<PrettyCode CodeFile="_content/SampleCore/snippets/buttons/buttons4.html" />
+<h3>Sizes</h3>
+
+<div class="docs-example">
+    <BSButton Color="Color.Primary" Size="Size.Large">Large Button</BSButton>
+    <BSButton Color="Color.Secondary" Size="Size.Large">Large Button</BSButton>
+</div>
+<PrettyCode CodeFile="_content/SampleCore/snippets/buttons/buttons5.html" />
+
+<div class="docs-example">
+    <BSButton Color="Color.Primary" Size="Size.Small">Small Button</BSButton>
+    <BSButton Color="Color.Secondary" Size="Size.Small">Small Button</BSButton>
+</div>
+<PrettyCode CodeFile="_content/SampleCore/snippets/buttons/buttons6.html" />
+
+<div class="docs-example">
+    <BSButton Color="Color.Primary" Size="Size.Large" IsBlock="true">Block Level Button</BSButton>
+    <BSButton Color="Color.Secondary" Size="Size.Large" IsBlock="true">Block Level Button</BSButton>
+</div>
+<PrettyCode CodeFile="_content/SampleCore/snippets/buttons/buttons7.html" />
+
+<h3>Active State</h3>
+<div class="docs-example">
+    <BSButton ButtonType="ButtonType.Link" Href="#" Color="Color.Primary" Size="Size.Large" IsActive="true">Primary Link</BSButton>
+    <BSButton ButtonType="ButtonType.Link" Href="#" Color="Color.Secondary" Size="Size.Large" IsActive="true">Link</BSButton>
+</div>
+<PrettyCode CodeFile="_content/SampleCore/snippets/buttons/buttons8.html" />
+
+<h3>Disabled State</h3>
+<div class="docs-example">
+    <BSButton Color="Color.Primary" Size="Size.Large" IsDisabled="true">Primary Button</BSButton>
+    <BSButton Color="Color.Secondary" Size="Size.Large" IsDisabled="true">Button</BSButton>
+    <BSButton ButtonType="ButtonType.Link" Href="#" Color="Color.Primary" Size="Size.Large" IsDisabled="true">Primary Link</BSButton>
+    <BSButton ButtonType="ButtonType.Link" Href="#" Color="Color.Secondary" Size="Size.Large" IsDisabled="true">Link</BSButton>
+</div>
+<PrettyCode CodeFile="_content/SampleCore/snippets/buttons/buttons9.html" />
+
+<h3>Checkbox and radio buttons</h3>
+<div class="docs-example">
+    <BSForm Model="customer">
+        <BSButtonGroup IsToggle="true">
+            <BSLabel IsButton="true">
+                <BSInput InputType="InputType.Checkbox" @bind-Value="customer.LastName" CheckValue="@("Hello")" />Checked
+            </BSLabel>
+        </BSButtonGroup>
+        <BSButtonGroup IsToggle="true">
+            <BSLabel IsButton="true">
+                <BSInput InputType="InputType.Checkbox" @bind-Value="customer.Checked" />Bool Checked
+            </BSLabel>
+        </BSButtonGroup>
+        <BSButtonGroup IsToggle="true">
+            <BSLabel IsButton="true">
+                <BSInput InputType="InputType.Radio" @bind-Value="customer.FirstName" RadioValue="@("John")" />John
+            </BSLabel>
+            <BSLabel IsButton="true">
+                <BSInput InputType="InputType.Radio" @bind-Value="customer.FirstName" RadioValue="@("Mike")" />Mike
+            </BSLabel>
+            <BSLabel IsButton="true">
+                <BSInput InputType="InputType.Radio" @bind-Value="customer.FirstName" RadioValue="@("Smith")" />Smith
+            </BSLabel>
+        </BSButtonGroup>
+    </BSForm>
+</div>
+<PrettyCode CodeFile="_content/SampleCore/snippets/buttons/buttons10.html" />
+
+<h3>Properties</h3>
+<BSTable IsStriped="true" IsBordered="true">
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>ButtonType</td>
+            <td>BlazorStrap.ButtonType (enum)</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Class</td>
+            <td>string</td>
+            <td>Adds an user defined class for site CSS.</td>
+        </tr>
+        <tr>
+            <td>Color</td>
+            <td>BlazorStrap.Color (enum)</td>
+            <td>Set the color of the button based on boostrap colors.</td>
+        </tr>
+        <tr>
+            <td>IsActive</td>
+            <td>bool</td>
+            <td>Button will appear pressed (with a darker background, darker border, and inset shadow) when active. This allows you to force the active appearance progmatically should you need to.</td>
+        </tr>
+        <tr>
+            <td>IsBlock</td>
+            <td>bool</td>
+            <td>Creates a block level button, that spans the full width of a parent.</td>
+        </tr>
+        <tr>
+            <td>IsDisabled</td>
+            <td>bool</td>
+            <td>Makes buttons look inactive.</td>
+        </tr>
+        <tr>
+            <td>IsInvalid</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>IsOutline</td>
+            <td>bool</td>
+            <td>Removes all background images / colors on the button.</td>
+        </tr>
+        <tr>
+            <td>IsValid</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Size</td>
+            <td>BlazorStrap.Size (enum)</td>
+            <td>Sets the size of the button.</td>
+        </tr>
+        <tr>
+            <td>Value</td>
+            <td>string</td>
+            <td>The value, or label, of the button.</td>
+        </tr>
+    </tbody>
+</BSTable>
+
+
+@code {
+    private Customer customer = new Customer();
+
+    void onclick(MouseEventArgs e)
+    {
+        Console.WriteLine("Button was clicked!");
+    }
+}

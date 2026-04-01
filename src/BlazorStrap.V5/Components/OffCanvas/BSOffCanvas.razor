@@ -1,0 +1,31 @@
+﻿@namespace BlazorStrap.V5
+@inherits BlazorStrap.Shared.Components.OffCanvas.BSOffCanvasBase
+
+@if (ShouldRenderContent)
+{
+    @if (Content == null)
+    {
+        <div class="@ClassBuilder" tabindex="-1" @attributes="Attributes" style="visibility:visible;" @ref="MyRef" data-blazorstrap="@DataId" data-bs-backdrop="@ShowBackdrop" data-bs-keyboard="@((!DisableEscapeKey) ? "true" : "false")" data-bs-allowscroll="@(AllowScroll ? "true" : "false")">
+
+            <CascadingValue Value="this">
+                @ChildContent
+            </CascadingValue>
+        </div>
+
+    }
+    else
+    {
+        <div class="@ClassBuilder" tabindex="-1" @attributes="Attributes" style="visibility:visible;" @ref="MyRef" data-blazorstrap="@DataId" data-bs-backdrop="@ShowBackdrop" data-bs-keyboard="@((!DisableEscapeKey) ? "true" : "false")" data-bs-allowscroll="@(AllowScroll ? "true" : "false")">
+            @if (Header != null)
+            {
+                <div class="@HeaderClassBuilder">
+                    @Header
+                    <button type="button" class="ms-auto btn-close @ButtonClass" data-bs-dismiss="toast" aria-label="Close" @onclick="ClickEvent"></button>
+                </div>
+            }
+            <div class="@BodyClassBuilder">
+                @Content
+            </div>
+        </div>
+    }
+}

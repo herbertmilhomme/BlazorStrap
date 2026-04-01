@@ -1,0 +1,206 @@
+﻿@page "/modals"
+
+<h1>Modals</h1>
+
+<div class="docs-example modal-example">
+    <BSModal IsOpen="true" NoBackdrop="true" Class="show" IsInline="true">
+        <BSModalHeader>Modal title</BSModalHeader>
+        <BSModalBody><p>Modal body text goes here.</p></BSModalBody>
+        <BSModalFooter>
+            <BSButton Color="Color.Primary">Do Something</BSButton>
+            <BSButton Color="Color.Secondary">Cancel</BSButton>
+        </BSModalFooter>
+    </BSModal>
+</div>
+<PrettyCode CodeFile="_content/SampleCore/snippets/modals/modals1.html" />
+
+<h3>Live Demo</h3>
+<div class="docs-example">
+    <BSButton Color="Color.Primary" @onclick="@(() => LiveDemo.Show())">Launch demo modal</BSButton>
+    <BSModal @ref="LiveDemo">
+        <BSModalHeader OnClick="@(() => LiveDemo.Hide())">Modal title</BSModalHeader>
+        <BSModalBody><p>Modal body text goes here.</p></BSModalBody>
+        <BSModalFooter>
+            <BSButton Color="Color.Secondary" @onclick="@(() => LiveDemo.Hide())">Close</BSButton>
+            <BSButton Color="Color.Primary" @onclick="@(() => LiveDemo.Hide())">Save Changes</BSButton>
+        </BSModalFooter>
+    </BSModal>
+</div>
+<PrettyCode CodeFile="_content/SampleCore/snippets/modals/modals2.html" />
+
+<h3>Vertically Centered</h3>
+<div class="docs-example">
+    <BSButton Color="Color.Primary" @onclick="@onToggle">Launch demo modal</BSButton>
+    <BSModal @ref="VerticallyCentered" IsCentered="true">
+        <BSModalHeader OnClick="@onToggle">Modal title</BSModalHeader>
+        <BSModalBody><p>Modal body text goes here.</p></BSModalBody>
+        <BSModalFooter>
+            <BSButton Color="Color.Secondary" @onclick="@onToggle">Close</BSButton>
+            <BSButton Color="Color.Primary" @onclick="@onToggle">Save Changes</BSButton>
+        </BSModalFooter>
+    </BSModal>
+</div>
+<PrettyCode CodeFile="_content/SampleCore/snippets/modals/modals3.html" />
+
+<h3>Sizes</h3>
+
+<div class="docs-example">
+    <BSButton Color="Color.Primary" @onclick="@(() => SizeLarge.Show())">Large modal</BSButton>
+    <BSModal @ref="SizeLarge" Size="Size.Large">
+        <BSModalHeader OnClick="@(() => SizeLarge.Hide())">Modal title</BSModalHeader>
+        <BSModalBody><p>Modal body text goes here.</p></BSModalBody>
+        <BSModalFooter>
+            <BSButton Color="Color.Secondary" @onclick="@(() => SizeLarge.Hide())">Close</BSButton>
+            <BSButton Color="Color.Primary" @onclick="@(() => SizeLarge.Hide())">Save Changes</BSButton>
+        </BSModalFooter>
+    </BSModal>
+    <BSButton Color="Color.Primary" @onclick="@(() => SizeSmall.Show())">Small modal</BSButton>
+    <BSModal @ref="SizeSmall" Size="Size.Small">
+        <BSModalHeader OnClick="@(() => SizeSmall.Hide())">Modal title</BSModalHeader>
+        <BSModalBody><p>Modal body text goes here.</p></BSModalBody>
+        <BSModalFooter>
+            <BSButton Color="Color.Secondary" @onclick="@(() => SizeSmall.Hide())">Close</BSButton>
+            <BSButton Color="Color.Primary" @onclick="@(() => SizeSmall.Hide())">Save Changes</BSButton>
+        </BSModalFooter>
+    </BSModal>
+</div>
+<PrettyCode CodeFile="_content/SampleCore/snippets/modals/modals4.html" />
+
+<h3>Full Width Modal</h3>
+
+<div class="docs-example">
+    <BSButton Color="Color.Primary" @onclick="@(() => FullWidth.Show())">Full width modal</BSButton>
+    <BSModal @ref="FullWidth" IsFullWidth="true">
+        <BSModalHeader OnClick="@(() => FullWidth.Hide())">Modal title</BSModalHeader>
+        <BSModalBody><p>Modal body text goes here.</p></BSModalBody>
+        <BSModalFooter>
+            <BSButton Color="Color.Primary" @onclick="@(() => FullWidth.Hide())">Do Something</BSButton>
+            <BSButton Color="Color.Secondary" @onclick="@(() => FullWidth.Hide())">Cancel</BSButton>
+        </BSModalFooter>
+    </BSModal>
+</div>
+<PrettyCode CodeFile="_content/SampleCore/snippets/modals/modals5.html" />
+
+<h3>Bottom Modal</h3>
+
+<div class="docs-example">
+    <BSButton Color="Color.Primary" @onclick="@(() => Bottom.Show())">Bottom modal</BSButton>
+    <BSModal @ref="Bottom" IsBottom="true">
+        <BSModalHeader OnClick="@(() => Bottom.Hide())">Modal title</BSModalHeader>
+        <BSModalBody><p>Modal body text goes here.</p></BSModalBody>
+        <BSModalFooter>
+            <BSButton Color="Color.Primary" @onclick="@(() => Bottom.Hide())">Do Something</BSButton>
+            <BSButton Color="Color.Secondary" @onclick="@(() => Bottom.Hide())">Cancel</BSButton>
+        </BSModalFooter>
+    </BSModal>
+</div>
+<PrettyCode CodeFile="_content/SampleCore/snippets/modals/modals6.html" />
+
+<h3>Bottom Sheet like modal</h3>
+
+<div class="docs-example">
+    <BSButton Color="Color.Primary" @onclick="@(() => BottomFull.Show())">Bottom sheet modal</BSButton>
+    <BSModal IsBottom="true" IsFullWidth="true" @ref="BottomFull">
+        <BSModalHeader OnClick="@(() => BottomFull.Hide())">Modal title</BSModalHeader>
+        <BSModalBody><p>Modal body text goes here.</p></BSModalBody>
+        <BSModalFooter>
+            <BSButton Color="Color.Primary" @onclick="@(() => BottomFull.Hide())">Do Something</BSButton>
+            <BSButton Color="Color.Secondary" @onclick="@(() => BottomFull.Hide())">Cancel</BSButton>
+        </BSModalFooter>
+    </BSModal>
+</div>
+<PrettyCode CodeFile="_content/SampleCore/snippets/modals/modals7.html" />
+
+
+<h3>Full Height Modal</h3>
+
+<div class="docs-example">
+    <BSButton Color="Color.Primary" @onclick="@(() => FullHeight.Show())">Full height modal</BSButton>
+    <BSModal IsFullHeight="true" @ref="FullHeight">
+        <BSModalHeader OnClick="@(() => FullHeight.Hide())">Modal title</BSModalHeader>
+        <BSModalBody><p>Modal body text goes here.</p></BSModalBody>
+        <BSModalFooter>
+            <BSButton Color="Color.Primary" @onclick="@(() => FullHeight.Hide())">Do Something</BSButton>
+            <BSButton Color="Color.Secondary" @onclick="@(() => FullHeight.Hide())">Cancel</BSButton>
+        </BSModalFooter>
+    </BSModal>
+</div>
+<PrettyCode CodeFile="_content/SampleCore/snippets/modals/modals8.html" />
+
+<h3>Fullscreen modal</h3>
+
+<div class="docs-example">
+    <BSButton Color="Color.Primary" @onclick="@(() => FullScreen.Show())">Fullscreen modal</BSButton>
+    <BSModal IsFullScreen="true" @ref="FullScreen">
+        <BSModalHeader OnClick="@(() => FullScreen.Hide())">Modal title</BSModalHeader>
+        <BSModalBody><p>Modal body text goes here.</p></BSModalBody>
+        <BSModalFooter>
+            <BSButton Color="Color.Primary" @onclick="@(() => FullScreen.Hide())">Do Something</BSButton>
+            <BSButton Color="Color.Secondary" @onclick="@(() => FullScreen.Hide())">Cancel</BSButton>
+        </BSModalFooter>
+    </BSModal>
+</div>
+<PrettyCode CodeFile="_content/SampleCore/snippets/modals/modals9.html" />
+
+<h3>Scrollable Demo</h3>
+<div class="docs-example">
+    <BSButton Color="Color.Primary" @onclick="@(() => LiveDemo.Show())">Launch demo modal</BSButton>
+    <BSModal @ref="LiveDemo" IsScrollable="true">
+        <BSModalHeader OnClick="@(() => LiveDemo.Hide())">Modal title</BSModalHeader>
+        <BSModalBody>
+            <p>This modal dialog has a lot of text</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sit amet nisi et erat placerat viverra in id risus. Quisque diam nulla, lobortis sed sodales eu, molestie in leo. Curabitur sodales, leo vel hendrerit fermentum, turpis erat hendrerit urna, nec iaculis ante felis ut magna. Sed hendrerit, justo nec porttitor mollis, est ipsum aliquet ligula, vitae tincidunt neque ante nec magna. Vestibulum finibus lacinia est, non tempor leo semper quis. Suspendisse eu ornare dui, a placerat ligula. Etiam ornare non turpis a tincidunt.</p>
+            <p>Praesent nec congue nunc. Donec euismod mollis turpis at pellentesque. Aenean imperdiet nisl augue, ac facilisis libero dictum scelerisque. Sed blandit justo vel sapien sodales pharetra. Ut nec sapien pellentesque velit mollis sodales. Nulla blandit lobortis purus, a feugiat sapien lacinia eu. Suspendisse cursus nisi ut lacus commodo, nec placerat nulla imperdiet. Suspendisse gravida tortor vel aliquam eleifend. Integer quis arcu urna. Curabitur non risus consectetur, venenatis neque ut, porta justo. Suspendisse potenti. In malesuada, ipsum sed mattis laoreet, quam turpis tristique nunc, at tincidunt ligula velit imperdiet justo.</p>
+            <p>Morbi tristique condimentum metus, eu rhoncus odio blandit ac. In ullamcorper bibendum velit ut faucibus. Quisque vel eleifend turpis. Vivamus ut malesuada mauris, ut dictum orci. Suspendisse vestibulum ligula orci, et placerat turpis dignissim vitae. Nunc facilisis lorem arcu, eu commodo nisl porttitor eu. Fusce cursus mi eu massa mattis hendrerit. Pellentesque dignissim sem et gravida tristique. Cras quis tristique est.</p>
+            <p>Mauris finibus, erat ac feugiat ultricies, mi purus tempus nunc, in placerat arcu orci non dolor. Praesent ultrices efficitur pretium. Quisque quis quam ipsum. Ut at tortor viverra, aliquet nulla lacinia, volutpat felis. Proin vitae nisi quis velit blandit gravida. Sed bibendum mi urna, a ultrices enim lobortis ac. Quisque auctor tortor elit, congue cursus quam interdum ac. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer molestie lectus sit amet volutpat lacinia. Proin mattis ornare eleifend. Fusce massa mauris, venenatis et faucibus eget, ultricies vel ipsum.</p>
+        </BSModalBody>
+        <BSModalFooter>
+            <BSButton Color="Color.Secondary" @onclick="@(() => LiveDemo.Hide())">Close</BSButton>
+            <BSButton Color="Color.Primary" @onclick="@(() => LiveDemo.Hide())">Save Changes</BSButton>
+        </BSModalFooter>
+    </BSModal>
+</div>
+<PrettyCode CodeFile="_content/SampleCore/snippets/modals/modals10.html" />
+
+<h3>Slide Out modal</h3>
+
+<div class="docs-example">
+    <BSButton Color="Color.Primary" @onclick="@(() => SlideOut.Show())">Slide out modal</BSButton>
+    <BSModal IsSlideOut="true" @ref="SlideOut">
+        <BSModalHeader OnClick="@(() => SlideOut.Hide())">Modal title</BSModalHeader>
+        <BSModalBody><p>Modal body text goes here.</p></BSModalBody>
+        <BSModalFooter>
+            <BSButton Color="Color.Primary" @onclick="@(() => SlideOut.Hide())">Do Something</BSButton>
+            <BSButton Color="Color.Secondary" @onclick="@(() => SlideOut.Hide())">Cancel</BSButton>
+        </BSModalFooter>
+    </BSModal>
+</div>
+<PrettyCode CodeFile="_content/SampleCore/snippets/modals/modals11.html" />
+
+<h3>Ignore Click on Back Drop</h3>
+
+<p>You can set <code>IgnoreClickOnBackDrop</code> to prevent the user closing the model by clicking on the back drop.</p>
+
+<h3>Ignore Escape Key</h3>
+
+<p>You can set <code>IgnoreEscape</code> to prevent the user closing the model by clicking the Escape key.</p>
+
+
+@code {
+    BSModal LiveDemo { get; set; }
+    BSModal VerticallyCentered { get; set; }
+    BSModal SizeLarge { get; set; }
+    BSModal SizeSmall { get; set; }
+    BSModal FullWidth { get; set; }
+    BSModal Bottom { get; set; }
+    BSModal BottomFull { get; set; }
+    BSModal SlideOut { get; set; }
+    BSModal FullHeight { get; set; }
+    BSModal FullScreen { get; set; }
+    bool IsOpen { get; set; }
+    void onToggle(MouseEventArgs e)
+    {
+        VerticallyCentered.Toggle();
+    }
+
+}

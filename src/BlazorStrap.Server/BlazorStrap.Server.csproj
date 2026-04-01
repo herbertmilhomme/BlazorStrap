@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>BlazorStrap.Server</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlazorStrap.Docs\BlazorStrap.Docs.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Watch Include="../BlazorStrap/**/*.razor" />
+    <Watch Include="../BlazorStrap/**/*.razor.css" />
+    <Watch Include="../BlazorStrap.V5/**/*.razor" />
+    <Watch Include="../BlazorStrap.V5/**/*.razor.css" />
+    <Watch Include="../BlazorStrap.V4/**/*.razor" />
+    <Watch Include="../BlazorStrap.V4/**/*.razor.css" />
+  </ItemGroup>
+  
+</Project>

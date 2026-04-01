@@ -1,0 +1,23 @@
+﻿@inherits BlazorStrap.Shared.Components.Common.BSNavBase
+@namespace BlazorStrap.V5
+
+<CascadingValue Value="this">
+    @if (IsNav)
+    {
+        <nav class="@ClassBuilder" @attributes="Attributes">
+            @ChildContent
+        </nav>
+    }
+    else
+    {
+        <ul class="@ClassBuilder" @attributes="Attributes">
+            @ChildContent
+        </ul>
+    }
+@if (TabWrapper == null)
+{
+    <BlazorStrap.InternalComponents.TabContentRender @ref="TabRender">
+        @ActiveChild?.TabContent
+    </BlazorStrap.InternalComponents.TabContentRender>
+}
+</CascadingValue>

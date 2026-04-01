@@ -1,0 +1,14 @@
+﻿@page "/"
+@inject NavigationManager NavigationManager
+
+
+@code{
+    protected override void OnInitialized()
+    {
+        try
+        {
+            NavigationManager.NavigateTo("V5");
+        }
+        catch { }
+    }
+}

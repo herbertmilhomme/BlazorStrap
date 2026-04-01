@@ -1,0 +1,97 @@
+﻿// Set up accepted page routes
+@page "/tabs"
+@page "/tabs/home"
+@page "/tabs/contact"
+@page "/tabs/admin"
+
+<BSTabGroup @ref="TabGroup" ShowEvent="@Show" HiddenEvent="@Hidden" HideEvent="@Hide" ShownEvent="@Shown">
+    <BSTabList>
+        <BSTab @ref="TabHome" Id="homeTab" InitialSelection="@(NavigationManager.Uri.EndsWith('home'))">
+            <BSTabLabel>Home</BSTabLabel>
+            <BSTabContent>
+                <h4>Home tab</h4>
+                This is the sample text for the Home tab
+            </BSTabContent>
+        </BSTab>
+        <BSTab Id="profileTab" InitialSelection="@true"> // Select this tab by default when page is loaded
+            <BSTabLabel>Profile</BSTabLabel>
+            <BSTabContent>
+                <h4>Profile tab information</h4>
+                This is the sample text for the Profile tab
+            </BSTabContent>
+        </BSTab>
+        <BSTab @ref="TabContact" Id="contactTab" InitialSelection="@(NavigationManager.Uri.EndsWith('contact'))">
+            <BSTabLabel>Contact</BSTabLabel>
+            <BSTabContent>
+                <h4>Contact tab</h4>
+                Sample text for Contact tab
+            </BSTabContent>
+        </BSTab>
+        <BSTab Id="adminTab" InitialSelection="@(NavigationManager.Uri.EndsWith('admin'))">
+            <BSTabLabel>Admin</BSTabLabel>
+            <BSTabContent>
+                <h4>Administration tab</h4>
+                Sample text for Admin tab
+            </BSTabContent>
+        </BSTab>
+    </BSTabList>
+    <BSTabSelectedContent />
+</BSTabGroup>
+
+@code {
+    private BSTabGroup TabGroup;
+    private BSTab TabContact;
+    private BSTab TabHome;
+
+    // 2. BSTabGroup reference by tab Id
+    private void ActivateProfileTab()
+    {
+        TabGroup.SelectTabById("profileTab");
+    }
+    private void ActivateAdminTab()
+    {
+        TabGroup.SelectTabById("adminTab");
+    }
+
+    // 3. By BSTab reference
+    private void ActivateContactTab()
+    {
+        TabContact.Select();
+    }
+    private void ActivateHomeTab()
+    {
+        TabHome.Select();
+    }
+
+    // 4. By route
+    private void Home()
+    {
+        NavigationManager.NavigateTo("/tabs/home", true);
+    }
+    private void Contact()
+    {
+        NavigationManager.NavigateTo("/tabs/contact", true);
+    }
+    private void Admin()
+    {
+        NavigationManager.NavigateTo("/tabs/admin", true);
+    }
+
+    // Methods to run on events
+    private void Show(BSTabEvent e)
+    {
+        Console.WriteLine($"Show   -> Activated: {e.Activated?.Id.ToString()} , Deactivated: {e.Deactivated?.Id.ToString()}");
+    }
+    private void Shown(BSTabEvent e)
+    {
+        Console.WriteLine($"Shown  -> Activated: {e.Activated?.Id.ToString()} , Deactivated: {e.Deactivated?.Id.ToString()}");
+    }
+    private void Hide(BSTabEvent e)
+    {
+        Console.WriteLine($"Hide   ->  Activated: {e.Activated?.Id.ToString()} , Deactivated: {e.Deactivated?.Id.ToString()}");
+    }
+    private void Hidden(BSTabEvent e)
+    {
+        Console.WriteLine($"Hidden -> Activated: {e.Activated?.Id.ToString()} , Deactivated: {e.Deactivated?.Id.ToString()}");
+    }
+}

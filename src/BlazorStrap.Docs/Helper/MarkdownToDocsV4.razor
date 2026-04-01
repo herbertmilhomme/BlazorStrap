@@ -1,0 +1,64 @@
+﻿@using BlazorStrap.V4
+
+@if (_notFound)
+{
+    @ChildContent
+}
+else
+{
+    @foreach (var sample in Samples ?? [])
+    {
+        @sample.Content
+        @if (sample.Component is not null)
+        {
+            <BSNav IsTabs="true" @key="sample">
+                @if (sample.Class != "d-none")
+                {
+                    <BSNavItem>
+                        <TabLabel>Example</TabLabel>
+                        <TabContent>
+                            <div class="@DefaultClass @sample.Class mt-0">
+                                <DynamicComponent Type="@sample.Component"/>
+                            </div>
+                        </TabContent>
+                    </BSNavItem>
+                }
+                <BSNavItem>
+                    <TabLabel>Markup</TabLabel>
+                    <TabContent>
+                        <div class="@DefaultClass mt-0">
+                            <SampleLoader Files="_files" BaseAddress="new Uri(NavigationManager.BaseUri)" FilePath="@sample.MarkupFile" FileType="FileType.Markup"/>
+                        </div>
+                    </TabContent>
+                </BSNavItem>
+                @if (sample.Class != "d-none")
+                {
+                    <BSNavItem >
+                        <TabLabel>Code</TabLabel>
+                        <TabContent>
+                            <div class="@DefaultClass mt-0">
+                                <SampleLoader Files="_files" BaseAddress="new Uri(NavigationManager.BaseUri)" FilePath="@sample.MarkupFile" FileType="FileType.CodeBlock"/>
+                                @if (sample.HasCode)
+                                {
+                                    <h5>Code Behind</h5>
+                                    <SampleLoader Files="_files" BaseAddress="new Uri(NavigationManager.BaseUri)" FilePath="@sample.CodeFile" FileType="FileType.Code"/>
+                                }
+                            </div>
+                        </TabContent>
+                    </BSNavItem>
+                }
+                @if (sample.HasCss)
+                {
+                    <BSNavItem>
+                        <TabLabel>Css</TabLabel>
+                        <TabContent>
+                            <div class="@DefaultClass mt-0">
+                                <SampleLoader Files="_files" BaseAddress="new Uri(NavigationManager.BaseUri)" FilePath="@sample.CssFile" FileType="FileType.Css"/>
+                            </div>
+                        </TabContent>
+                    </BSNavItem>
+                }
+            </BSNav>
+        }
+    }
+}
